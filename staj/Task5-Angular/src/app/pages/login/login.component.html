@@ -9,12 +9,12 @@
       <h1 class="modal-title">Hoş Geldiniz!</h1>
       <p class="modal-desc">ANKAREF etkinlik takip sistemine giriş yapmak için lütfen mailinizi ve şifrenizi girin</p>
       <div class="input-block">
-        <label for="email" class="input-label">Email</label>
-        <input type="email" name="email" id="email" placeholder="Emailiniz" [ngModel]="loginObject.email" required>
+        <label for="username" class="input-label">Kullanıcı Adı</label>
+        <input type="text" name="username" id="username" placeholder="Kullanıcı Adınız" [(ngModel)]="loginObject.username" required>
       </div>
       <div class="input-block">
         <label for="password" class="input-label">Şifre</label>
-        <input type="password" name="password" id="password" placeholder="Şifreniz" [ngModel]="loginObject.password" required>
+          <input type="password" name="password" id="password" placeholder="Şifreniz" [(ngModel)]="loginObject.password" required>
       </div>
       <div class="modal-buttons">
         <a href="" class="">Şifrenizi mi unuttunuz?</a>

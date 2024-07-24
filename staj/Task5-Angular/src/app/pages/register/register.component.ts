@@ -62,7 +62,7 @@ export class RegisterComponent implements OnInit, OnDestroy
   {
     this.http.post('http://localhost:8080/auth/register', this.registerObject).subscribe((response: any) =>
     {
-      if (response.success)
+      if (response.success  )
       {
         this.router.navigate(['/login']);
       }

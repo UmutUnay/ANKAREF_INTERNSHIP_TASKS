@@ -1,0 +1,26 @@
+<div class="events-container">
+  <table class="events-table">
+    <thead>
+    <tr>
+      <th>Event Name</th>
+      <th>Date</th>
+      <th>Location</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngIf="events.length === 0">
+      <td colspan="4">No events available</td>
+    </tr>
+    <tr *ngFor="let event of events">
+      <td>{{ event.name }}</td>
+      <td>{{ event.date }}</td>
+      <td>{{ event.location }}</td>
+      <td>
+        <button (click)="viewEventDetails(event.id)">Event Details</button>
+        <button (click)="attendEvent(event.id)">Attend Event</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

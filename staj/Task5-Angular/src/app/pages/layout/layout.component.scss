@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,600,700");
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #8c7569; /* Pastel brown */
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background-color: #F5DFB9; /* Lighter pastel brown */
+  color: #55311c;
+}
+
+.header {
+  background-color: #8c7569; /* Pastel brown */
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+.main {
+  display: flex;
+  border: 1px solid #8c7569; /* Pastel brown */
+  margin: 20px;
+  display: none;
+}
+
+.main.active {
+  display: flex;
+}
+
+.column {
+  flex: 1;
+  border: 1px solid #8c7569; /* Pastel brown */
+  margin: 10px;
+  padding: 10px;
+}
+
+.admin {
+  flex: 0.5;
+  border: 1px solid #D2B48C; /* Pastel brown */
+  margin: 10px;
+  padding: 10px;
+}
+
+.button {
+  display: block;
+  width: fit-content;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: #8c7569; /* Pastel brown */
+  color: white;
+  border: 1px solid #D2B48C; /* Pastel brown */
+  text-align: center;
+  text-decoration: none;
+}
+
+.dashboard {
+  text-align: center;
+  padding: 20px;
+}

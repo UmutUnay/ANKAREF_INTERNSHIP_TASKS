@@ -1,14 +1,13 @@
 import {Component, ElementRef, HostListener, OnDestroy, OnInit, Renderer2} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {Router, RouterModule} from "@angular/router";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
     FormsModule,
-    HttpClientModule,
     RouterModule
   ],
   templateUrl: './login.component.html',
@@ -52,11 +51,12 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   onLogin(): void {
-    alert("Trying Login")
-    this.http.post('http://localhost:8080/auth/generateToken', this.loginObject).subscribe((response:any) => {
+    this.http.post<string>('http://localhost:8080/auth/generateToken', this.loginObject).subscribe((response:any) => {
+      alert(`Token: ${response.token}`)
       if(response.result)
       {
-        alert("Login Successful")
+        alert("Login Success")
+        localStorage.setItem('token', response.token);
         this.router.navigate(['/dashboard']);
       }
       else
@@ -126,11 +126,11 @@ export class LoginComponent implements OnInit, OnDestroy {
 
 export class Login
 {
-  email: string;
+  username: string;
   password: string;
   constructor()
   {
-    this.email = "";
+    this.username = "";
     this.password = "";
   }
 }
