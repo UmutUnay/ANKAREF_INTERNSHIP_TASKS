@@ -1,11 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {CommonModule} from "@angular/common";
 
 @Component({
   selector: 'app-all-events',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './all-events.component.html',
   styleUrl: './all-events.component.scss'
 })
@@ -33,4 +36,9 @@ export class AllEventsComponent implements OnInit {
       alert('You have been added to the event!');
     });
   }
+
+  addEvent(): void {
+    this.router.navigate(['/add-event']);
+  }
+
 }

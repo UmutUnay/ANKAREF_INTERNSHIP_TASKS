@@ -1,0 +1,28 @@
+<div class="header">
+  <h1><strong>{{ event?.name }}</strong></h1>
+</div>
+<div class="event-details-container">
+  <div class="content">
+    <div class="event-info">
+      <p><strong>Tarih:</strong> {{ event?.date }}</p>
+      <p><strong>Açıklama:</strong>{{ event?.description }}</p>
+    </div>
+    <div class="attending-users">
+      <h2><strong>Katılımcılar</strong></h2>
+      <table class="attending-users-table">
+        <thead>
+        <tr>
+          <th>Katılımcı Adı</th>
+          <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of attendingUsers">
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

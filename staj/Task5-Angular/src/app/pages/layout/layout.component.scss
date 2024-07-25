@@ -1,77 +1,49 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito:400,600,700");
 
+$font-family: 'Nunito', Arial, sans-serif;
+$bg-color: #f4f4f9;
+$text-color: #333;
+$navbar-bg: #806c61; /* Pastel brown */
+$navbar-hover-bg: #f5dfb9; /* Lighter pastel brown */
+$navbar-hover-text: #55311c;
+$box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+$border-radius: 20px;
+
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: $font-family;
+  background-color: $bg-color;
+  color: $text-color;
 }
 
 .navbar {
   overflow: hidden;
-  background-color: #8c7569; /* Pastel brown */
-  color: white;
-  padding: 10px;
-  text-align: center;
-}
-
-.navbar a {
-  float: left;
-  display: block;
+  background-color: $navbar-bg;
   color: white;
   text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.navbar a:hover {
-  background-color: #F5DFB9; /* Lighter pastel brown */
-  color: #55311c;
-}
-
-.header {
-  background-color: #8c7569; /* Pastel brown */
-  color: white;
-  text-align: center;
-  padding: 10px;
-}
-
-.main {
-  display: flex;
-  border: 1px solid #8c7569; /* Pastel brown */
-  margin: 20px;
-  display: none;
-}
-
-.main.active {
-  display: flex;
-}
-
-.column {
-  flex: 1;
-  border: 1px solid #8c7569; /* Pastel brown */
+  box-shadow: $box-shadow;
   margin: 10px;
-  padding: 10px;
+
+  a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    border-radius: $border-radius;
+
+    &:hover {
+      background-color: $navbar-hover-bg;
+      color: $navbar-hover-text;
+    }
+  }
 }
 
-.admin {
-  flex: 0.5;
-  border: 1px solid #D2B48C; /* Pastel brown */
-  margin: 10px;
-  padding: 10px;
-}
-
-.button {
-  display: block;
-  width: fit-content;
-  margin: 20px auto;
-  padding: 10px;
-  background-color: #8c7569; /* Pastel brown */
-  color: white;
-  border: 1px solid #D2B48C; /* Pastel brown */
-  text-align: center;
-  text-decoration: none;
-}
-
-.dashboard {
-  text-align: center;
-  padding: 20px;
+:host {
+  flex: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #4b2e2e;
 }

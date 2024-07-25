@@ -1,1 +1,27 @@
-<p>close-events works!</p>
+<div class="events-container">
+  <table class="events-table">
+    <thead>
+    <tr>
+      <th>Etkinliğin Adı</th>
+      <th>Açıklama</th>
+      <th>Tarih</th>
+      <th>Butonlar</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngIf="events.length === 0">
+      <td colspan="4">Yakın zamanda etkinlik olacağa benzemiyor</td>
+    </tr>
+    <tr *ngFor="let event of events">
+      <td>{{ event.name }}</td>
+      <td>{{ event.description }}</td>
+      <td>{{ event.date }}</td>
+      <td>
+        <button (click)="viewEventDetails(event.id)">Detaylar</button>
+        &nbsp;
+        <button (click)="attendEvent(event.id)">Katılın</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

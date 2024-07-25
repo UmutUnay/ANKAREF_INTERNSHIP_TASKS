@@ -2,25 +2,27 @@
   <table class="events-table">
     <thead>
     <tr>
-      <th>Event Name</th>
-      <th>Date</th>
-      <th>Location</th>
-      <th>Actions</th>
+      <th>Etkinliğin Adı</th>
+      <th>Açıklama</th>
+      <th>Tarih</th>
+      <th>Butonlar</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngIf="events.length === 0">
-      <td colspan="4">No events available</td>
+      <td colspan="4">Etkinlik eklenmemiş eklemek için alttaki butona tıklayın</td>
     </tr>
     <tr *ngFor="let event of events">
       <td>{{ event.name }}</td>
+      <td>{{ event.description }}</td>
       <td>{{ event.date }}</td>
-      <td>{{ event.location }}</td>
       <td>
-        <button (click)="viewEventDetails(event.id)">Event Details</button>
-        <button (click)="attendEvent(event.id)">Attend Event</button>
+        <button (click)="viewEventDetails(event.id)">Detaylar</button>
+        &nbsp;
+        <button (click)="attendEvent(event.id)">Katılın</button>
       </td>
     </tr>
     </tbody>
   </table>
+  <button class="add-event-button" (click)="addEvent()">Etkinlik Ekle</button>
 </div>

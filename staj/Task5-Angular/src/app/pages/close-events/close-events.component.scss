@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,600,700");
+
+$font-family: 'Nunito', Arial, sans-serif;
+$body-bg-color: #f4f4f9;
+$text-color: #333;
+$table-bg-color: rgba(245, 245, 220, 0.9); // Slightly translucent
+$table-border-color: rgba(210, 180, 140, 0.5); // Translucent
+$table-row-alt-bg: rgba(245, 223, 185, 0.8); // Translucent
+$table-row-hover-bg: rgba(233, 213, 184, 0.9); // Translucent
+$primary-color: rgba(140, 117, 105, 0.9); // Slightly translucent
+$primary-hover-color: rgba(85, 49, 28, 0.9); // Slightly translucent
+$box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+$button-shadow-hover: 0 2px 10px rgba(0, 0, 0, 0.2);
+$border-radius: 20px; // Softer corners
+
+body {
+  margin: 0;
+  font-family: $font-family;
+  background-color: $body-bg-color;
+  color: $text-color;
+}
+
+.events-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  background-color: $table-bg-color;
+  padding: 10px;
+}
+
+.events-table {
+  width: 80%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 20px 0;
+  background-color: white;
+  border-radius: $border-radius;
+  overflow: hidden;
+  box-shadow: $box-shadow;
+
+  th, td {
+    padding: 12px; // More compact
+    text-align: left;
+  }
+
+  th {
+    background-color: $primary-color;
+    color: white;
+  }
+
+  td {
+    border-bottom: 1px solid $table-border-color;
+  }
+
+  tr:nth-child(even) td {
+    background-color: $table-row-alt-bg;
+  }
+
+  tr:hover td {
+    background-color: $table-row-hover-bg;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+button {
+  display: inline-block;
+  margin: 0 0;
+  padding: 10px 20px;
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  border-radius: $border-radius;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    background-color: $primary-hover-color;
+    box-shadow: $button-shadow-hover;
+  }
+}
+
+p {
+  margin: 0;
+}
