@@ -1,1 +1,20 @@
-<p>add-event works!</p>
+<form class="add-event-form" (ngSubmit)="onAddEvent()">
+  <div class="add-event-container">
+    <h2>Etkinlik Ekle</h2>
+    <div class="input-block">
+      <label for="name" class="input-label">Etkinliğin Adı</label>
+      <input type="text" name="name" id="name" placeholder="Etkinliğin Adı" [(ngModel)]="eventObject.name" required>
+    </div>
+    <div class="input-block">
+      <label for="description" class="input-label">Açıklama</label>
+      <input type="text" name="description" id="description" placeholder="Açıklama" [(ngModel)]="eventObject.description" required>
+    </div>
+    <div class="input-block">
+      <label for="date" class="input-label">Tarih</label>
+      <input type="date" name="date" id="date" placeholder="Tarih" [(ngModel)]="eventObject.date" required>
+    </div>
+    <div class="modal-buttons">
+      <button type="submit" class="input-button">Etkinlik Ekle</button>
+    </div>
+  </div>
+</form>

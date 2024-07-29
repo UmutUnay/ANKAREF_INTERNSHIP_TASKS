@@ -8,6 +8,8 @@ import {AllEventsComponent} from "./pages/all-events/all-events.component";
 import {UserListComponent} from "./pages/user-list/user-list.component";
 import {EventDetailsComponent} from "./pages/event-details/event-details.component";
 import {AddEventComponent} from "./pages/add-event/add-event.component";
+import {UserDetailsComponent} from "./pages/user-details/user-details.component";
+import {AddUserComponent} from "./pages/add-user/add-user.component";
 
 export const routes: Routes = [
   {
@@ -28,6 +30,14 @@ export const routes: Routes = [
   {
     path: 'add-event',
     component: AddEventComponent
+  },
+  {
+    path: 'user-details/:id',
+    component: UserDetailsComponent
+  },
+  {
+    path: 'add-user',
+    component: AddUserComponent
   },
   {
     path:'',

@@ -11,10 +11,12 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 import umut.unay.task5_spring_boot.entity.AuthRequest;
+import umut.unay.task5_spring_boot.entity.EventInfo;
 import umut.unay.task5_spring_boot.entity.UserInfo;
 import umut.unay.task5_spring_boot.service.JwtService;
 import umut.unay.task5_spring_boot.service.UserInfoService;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -38,10 +40,25 @@ public class UserController
 
     // Get
     @GetMapping("/all-users")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    //@PreAuthorize("hasRole('ROLE_ADMIN')")  --DISABLED FOR TESTING
     public Iterable<UserInfo> getAllUsers()
     {
         return service.findAll();
+    }
+
+    // FOR TESTING CAN DELETE WHEN IMPELENTED AFTER TOKEN IMPLEMENTATION
+    @GetMapping("/user-get/{id}")
+    //@PreAuthorize("hasRole('ROLE_USER')")  --DISABLED FOR TESTING
+    public Optional<UserInfo> getUser(@PathVariable int id)
+    {
+        return service.findById(id);
+    }
+
+    @GetMapping("/user/{id}-get-attending-events")
+    //@PreAuthorize("hasRole('ROLE_USER')")  --DISABLED FOR TESTING
+    public List<EventInfo> getAttendingEvents(@PathVariable int id)
+    {
+        return service.getAttendingEvents(id);
     }
 
     // Post
@@ -56,14 +73,14 @@ public class UserController
     // Put
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @CrossOrigin(origins = "http://localhost:4200")
-    @PutMapping("/user/{id}")
+    @PutMapping("/user-update/{id}")
     public void updateUser(@PathVariable int id, @RequestBody UserInfo userInfo)
     {
         service.updateUser(id, userInfo);
     }
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @CrossOrigin(origins = "http://localhost:4200")
-    @PutMapping("/admin/{id}")
+    @PutMapping("/admin-update/{id}")
     public void updateAdmin(@PathVariable int id, @RequestBody UserInfo userInfo)
     {
         service.updateUser(id, userInfo);
@@ -72,14 +89,14 @@ public class UserController
     // Delete
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @CrossOrigin(origins = "http://localhost:4200")
-    @DeleteMapping("/user/{id}")
+    @DeleteMapping("/user-delete/{id}")
     public void deleteUser(@PathVariable int id)
     {
         service.deleteUser(id);
     }
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @CrossOrigin(origins = "http://localhost:4200")
-    @DeleteMapping("/admin/{id}")
+    @DeleteMapping("/admin-delete/{id}")
     public void deleteAdmin(@PathVariable int id)
     {
         service.deleteUser(id);

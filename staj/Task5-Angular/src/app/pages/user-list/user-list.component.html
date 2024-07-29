@@ -1,1 +1,24 @@
-<p>user-list works!</p>
+<div class="user-container">
+  <table class="users-table">
+    <thead>
+    <tr>
+      <th>Kullanıcı Adı</th>
+      <th>Email</th>
+      <th>Butonlar</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngIf="users.length === 0">
+      <td colspan="4">Sisteme kayıtı kullanıcı bulunamadı   eklemek için alttaki butona tıklayın</td>
+    </tr>
+    <tr *ngFor="let user of users">
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>
+        <button (click)="viewUserDetails(user.id)">Detaylar</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <button class="add-event-button" (click)="addUser()">Kullanıcı Ekle</button>
+</div>

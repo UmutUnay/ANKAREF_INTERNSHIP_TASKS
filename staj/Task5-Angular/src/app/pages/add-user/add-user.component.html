@@ -1,0 +1,24 @@
+<form class="add-user-form" (ngSubmit)="onAddUser()">
+  <div class="add-user-container">
+    <h2>Kullanıcı Ekle</h2>
+    <div class="input-block">
+      <label for="name" class="input-label">Kullanıcı Adı</label>
+      <input type="text" name="name" id="name" placeholder="Kullanıcı Adı" [(ngModel)]="userObject.name" required>
+    </div>
+    <div class="input-block">
+      <label for="email" class="input-label">Email</label>
+      <input type="email" name="email" id="email" placeholder="Email" [(ngModel)]="userObject.email" required>
+    </div>
+    <div class="input-block">
+      <label for="password" class="input-label">Şifre</label>
+      <input type="password" name="password" id="password" placeholder="Şifre" [(ngModel)]="userObject.password" required>
+    </div>
+    <div class="input-block">
+      <label for="role" class="input-label">Rol</label>
+      <input type="text" name="role" id="role" placeholder="User/Admin" [(ngModel)]="userObject.roles" required>
+    </div>
+    <div class="modal-buttons">
+      <button type="submit" class="input-button">Kullanıcı Ekle</button>
+    </div>
+  </div>
+</form>

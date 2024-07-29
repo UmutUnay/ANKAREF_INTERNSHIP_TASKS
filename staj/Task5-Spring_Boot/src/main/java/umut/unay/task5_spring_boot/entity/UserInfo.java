@@ -1,5 +1,6 @@
 package umut.unay.task5_spring_boot.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,5 +23,6 @@ public class UserInfo
     private String roles;
 
     @ManyToMany(mappedBy = "attendingUsers")
+    @JsonIgnore
     private List<EventInfo> events;
 }

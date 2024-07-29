@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import umut.unay.task5_spring_boot.entity.EventInfo;
 import umut.unay.task5_spring_boot.entity.UserInfo;
 import umut.unay.task5_spring_boot.exceptions.UserAlreadyExistsException;
 import umut.unay.task5_spring_boot.repository.UserInfoRepository;
@@ -32,6 +33,16 @@ public class UserInfoService implements UserDetailsService
     public List<UserInfo> findAll()
     {
         return userInfoRepository.findAll();
+    }
+
+    public Optional<UserInfo> findById(int id)
+    {
+        return userInfoRepository.findById(id);
+    }
+
+    public List<EventInfo> getAttendingEvents(int id)
+    {
+        return userInfoRepository.getAttendingEvents(id);
     }
 
     public void addUser(UserInfo userInfo)
